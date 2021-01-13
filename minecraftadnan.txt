@@ -1,0 +1,77 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SETTING UP A SERVER (IN WINDOWS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_________________________________
+STEP 1: PORT FORWARDING
+_________________________________
+
+--> learn what your local ip address is:
+-> cmd
+-> type: ipconfig
+-> your local ip should be something like:  192.168.1.7  or  192.168.1.6  or whatever...
+
+--> now go to your default gateway:
+-> go to the following address in your internet browser  192.168.1.1
+
+--> all the intructions after this one are specific for the last modem you had
+-> serial number, login (select "user") (password: *message me for the password*)
+-> go to > advanced settings > LAN servers
+-> make a new entry with the following settings:
+Protocol = TCP
+Public start port = 25565
+Public end port = 25565
+LAN start port = 25565
+Local IP Address = *your local ip*
+-> now make a second entry with all the same settings but with protocol=UDP
+
+_________________________________
+STEP 2: RUN THE SERVER.JAR
+_________________________________
+
+--> first download the  server.jar  from the main minecraft website if you want
+--> make sure it has the same version as the client your are using (your minecraft.exe)
+
+--> to run it use this code and put it in a  run_the_server.bat  file
+@ECHO OFF
+ECHO Server starting ...
+java -Xmx1024M -Xms1024M -jar minecraft_server.jar nogui
+ECHO Server closed
+PAUSE
+
+--> after running the batch file go into the eula.txt and set the variable to true
+
+--> open the  server.properties  file and change the following settings:
+server-port=25565
+server-ip=*your local ip*
+online-mode=false
+
+--> finally remember: to close the server type  stop  in the cmd thing that opened after you ran the batch file
+
+_________________________________
+STEP 3: JOIN THE SERVER USING YOUR CLIENT
+_________________________________
+
+--> open your  minecraft.exe  and go to multiplayer and type in *your local ip* and join the server!
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+SETTING UP A SERVER (FOR ADNAN)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--> find your local ip:
+    -> press windows-button
+    -> type "cmd" and press Enter
+    -> type inside cmd "ipconfig" and find your local ip (it should look something like this "192.168.1.3")
+
+--> go to the website of the modem:
+    -> open your browser (firefox)
+    -> type in the url  192.168.1.1  and press enter
+    -> select "user" and type the password  *message me for the password*
+    -> select  Access Control > Port Mapping
+    -> change the ip to your ip
+
+--> go to the minecraft server file called "server.properties" and open it and change
+    -> server-ip=*your local ip*
+
+--> start the server by running the batch file called "run_the_server.bat"
+--> to close the server type "stop" inside the terminal
+
